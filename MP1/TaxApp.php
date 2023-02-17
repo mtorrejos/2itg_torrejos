@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="row">	
 			<div class="form-container" id="bgcolor">
-				<h1> Tax Calculator</h1>
+				<h1> Taxxy: A Tax Calculator</h1>
 				<h4> Submitted by: Miguel Adrian Torrejos </h4>
 				<form class="form" method="get" action="">
 					<input type="number" name="salary" value="" placeholder="Salary">
