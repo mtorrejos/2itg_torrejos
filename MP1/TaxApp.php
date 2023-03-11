@@ -19,6 +19,7 @@
 					<select name="salaryType">
 						<option name="weekly">Weekly</option>
 						<option name="monthly">Monthly</option>
+						<option name="bimonthly">Bi-Monthly</option>
 						<option name="anually">Anually</option>
 					</select>
 					<input type="submit" name="submit" value="Submit" class="btn btn-outline-dark">
@@ -35,6 +36,9 @@
 				if($salary != '') {
 					if($salaryType == 'Weekly') {
 						$salary = $salary*4;
+					}
+					else if($salaryType == 'Bi-Monthly') {
+						$salary = $salary/2;
 					}
 					else if($salaryType == 'Anually') {
 						$salary = $salary/12;
