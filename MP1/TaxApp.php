@@ -19,6 +19,7 @@
 					<select name="salaryType">
 						<option name="weekly">Weekly</option>
 						<option name="monthly">Monthly</option>
+						<option name="bimonthly">Bi-Monthly</option>
 						<option name="anually">Anually</option>
 					</select>
 					<input type="submit" name="submit" value="Submit" class="btn btn-outline-dark">
@@ -36,6 +37,9 @@
 					if($salaryType == 'Weekly') {
 						$salary = $salary*4;
 					}
+					else if($salaryType == 'Bi-Monthly') {
+						$salary = $salary*2;
+					}
 					else if($salaryType == 'Anually') {
 						$salary = $salary/12;
 					}
@@ -49,24 +53,24 @@
 					exit();
 				}
 
-
+				$annualSalary = $salary*12;
 				/*tax calc*/
-				if($salary > 250000 && $salary <= 400000) { $tax = ($salary - 250000) * 0.2; }
-				else if($salary > 400000 && $salary <= 800000) { $tax = 30000 + ($salary - 400000)*0.25; }
-				else if($salary > 400000 && $salary <= 800000) { $tax = 30000 + ($salary - 400000)*0.25; }
-				else if($salary > 800000 && $salary <= 2000000) { $tax = 130000 + ($salary - 800000)*0.3; }
-				else if($salary > 2000000 && $salary <= 8000000) { $tax = 490000 + ($salary - 2000000)*0.32; }
-				else if($salary > 8000000) { $tax = 2410000 + ($salary - 8000000)*0.35; }
+				if($annualSalary > 250000 && $annualSalary <= 400000) { $tax = ($annualSalary - 250000) * 0.2; }
+				else if($annualSalary > 400000 && $annualSalary <= 800000) { $tax = 30000 + ($annualSalary - 400000)*0.25; }
+				else if($annualSalary > 400000 && $annualSalary <= 800000) { $tax = 30000 + ($annualSalary - 400000)*0.25; }
+				else if($annualSalary > 800000 && $annualSalary <= 2000000) { $tax = 130000 + ($annualSalary - 800000)*0.3; }
+				else if($annualSalary > 2000000 && $annualSalary <= 8000000) { $tax = 490000 + ($annualSalary - 2000000)*0.32; }
+				else if($annualSalary > 8000000) { $tax = 2410000 + ($annualSalary - 8000000)*0.35; }
 				else { $tax = 0; } /*if less than 250000*/
 
 				/*display relevant data*/
 				echo '<div id="bgcolor"> <label> Annual Salary: PHP';
 				/*number_format("number", "decimals", "decimal string", "thousands string")*/
-				echo number_format($salary*12,2,".",","); 
+				echo number_format($annualSalary,2,".",","); 
 				echo '<br>Est. Annual Tax: PHP';
-				echo number_format($tax*12,2,".",",");
-				echo '<br>Est. Monthly Tax: PHP';
 				echo number_format($tax,2,".",",");
+				echo '<br>Est. Monthly Tax: PHP';
+				echo number_format($tax/12,2,".",",");
 				echo '</label> </div>';
 			}
 
