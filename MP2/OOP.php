@@ -105,7 +105,7 @@
 	  			}
 
 	  			public function printInfo($n) {
-	  				echo '<br><br> BranchClass - printInfo():';
+	  				echo '<br><br> BranchClass - printInfo():<br>';
 					$this->displayInfo();
 				} 
 			}
